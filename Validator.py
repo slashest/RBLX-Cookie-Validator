@@ -1,7 +1,7 @@
 import requests
 
 def check_cookie(cookie: str) -> str:
-    response = requests.get("https://www.roblox.com/home", cookies={".ROBLOSECURITY": token})
+    response = requests.get("https://www.roblox.com/home", cookies={".ROBLOSECURITY": cookie})
     if "data-name" in response.text:
         print("Valid cookie")
     else:
@@ -11,7 +11,7 @@ def main():
     try:
         while True:
             token = input("Cookie: ").strip()
-            check_cookie(cookie)
+            check_cookie(token)
     except KeyboardInterrupt:
         return
 
